@@ -3,47 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-BOOK</title>
+    <title>Login-Page</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background: url("./Assets/liabrary-bg.jpg");
+    background-size: cover;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="./Assets//logo.png" alt="">
+    <form id="loginform">
+        <div class="container">
+            <h1>LOGIN</h1>
+        <div class="input-group">
+            <input class="input" type="text" id="username" placeholder="Username">
+            <label class="label" for="username">username</label>
         </div>
-        <div class="heading">
-        <h1>Library Management System</h1>
+        <div class="input-group">
+            <input class="input" type="text" id="userpassword" placeholder="Userpassword">
+            <label class="label" for="username">Password</label>
         </div>
-    </nav>
-    
-    <div class="main-container">
-        <div class="book-container">
-            <h2>Rich Dad Poor Dad</h2>
-            <h3>Robert</h3>
-            <p>Develop Business Knowledge</p>
-            <button onclick="deletebook(event)">Delete</button>
-        </div>
+        <input type="submit" value="SUBMIT" onclick="submit">
     </div>
+    </form>
 
-    <div class="popup-overlay"></div>
+    <script>
+        document.getElementById("loginform").addEventListener("submit",function(e){
+    e.preventDefault();
 
-    <div class="popup-box">
-        <div class="head">
-        <img src="./Assets/logo.png" alt="">
-        <h2>Add Book</h2>
-    </div>
-        <form>
-            <input type="text" placeholder="Book Title" id="book-title-input">
-            <input type="text" placeholder="Book Author" id="book-author-input">
-            <textarea id="book-description-input" placeholder="Short Description"></textarea>
-            <button id="add-book">ADD</button>
-            <button id="cancel-popup">CANCEL</button>
-        </form>
-    </div>
-    
-    <button id="add-popup-btn" class="add-button">+</button>
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("userpassword").value;
 
+    var correctusername = "root";
+    var correctpassword = "root123";
 
-<script src="script.js"></script>
+    if(username === correctusername && password === correctpassword){
+        window.location.href = "index.html";
+    }
+    else{
+        alert("Invalid username or password")
+    }
+})
+    </script>
 </body>
 </html>
